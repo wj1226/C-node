@@ -187,7 +187,7 @@ int main()
 int Fac(int n)
 {
 	int i = 0;
-	int ret = 0;
+	int ret = 1;
 	for (i = 1; i <= n; i++)
 	{
 		ret *= i;
