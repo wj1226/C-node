@@ -301,7 +301,7 @@ int Fib(int n)
 {
 	int a = 1;
 	int b = 1;
-	int c = 0;
+	int c = 1;
 
 	while (n > 2)
 	{
