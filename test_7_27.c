@@ -359,14 +359,128 @@ int main()
 	// 传参在传递给函数的时候 ==数组名会降级变成首元素地址==
 	Sort(arr, sz);
 
-	//Print(arr);
+	Print(arr, sz);
+
+	return 0;
+}
+// 当数组传参的时候，实际上只是把数组的首元素的地址传递过去了。
+// 所以即使在函数参数部分写成数组的形式： int arr[] 表示的依然是一个指针： int* arr 。
+// 那么，函数内部的 sizeof(arr) 结果是4。
+
+
+
+// 加上print函数
+void Print(int* p, int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", p[i]);
+		// printf("%d ", *(p + i));
+		// printf("%d ", *p++); // 先简引用再++
+	}
+}
+
+void Sort(int* arr, int sz)
+{
+	int i = 0;
+	// 冒泡排序的趟数
+	for (i = 0; i < sz - 1; i++)
+	{
+		// a一趟冒泡排序的过程
+		int j = 0;
+		for (j = 0; j < sz - 1 - i; j++) // 第一次9趟 第二次8趟
+		{
+			if (arr[j] > arr[j + 1]) // 升序
+			{
+				// 交换
+				int tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+			}
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = { 1, 3, 5, 2, 6, 9, 4, 8, 7, 0 };
+	// 数组传参
+	// 排序
+
+	// 数组名如果没有传参，单独放在sizeof内部的时候，如：sizeof(arr)，这里的arr表示整个数组，不是首元素的地址
+	int sz = sizeof(arr) / sizeof(arr[0]); // 此时sizeof(arr)计算的是整个数组的大小 40 / 4
+
+	// 传参在传递给函数的时候 ==数组名会降级变成首元素地址==
+	Sort(arr, sz);
+
+	Print(arr, sz);
 
 	return 0;
 }
 
-// 当数组传参的时候，实际上只是把数组的首元素的地址传递过去了。
-// 所以即使在函数参数部分写成数组的形式： int arr[] 表示的依然是一个指针： int* arr 。
-// 那么，函数内部的 sizeof(arr) 结果是4。
+
+
+// 优化 flag 提高效率
+void Print(int* p, int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", p[i]);
+		// printf("%d ", *(p + i));
+		// printf("%d ", *p++); // 先简引用再++
+	}
+}
+
+void Sort(int* arr, int sz)
+{
+	int i = 0;
+	// 冒泡排序的趟数
+	for (i = 0; i < sz - 1; i++)
+	{
+		// a一趟冒泡排序的过程
+		int j = 0;
+
+		int flag = 1; // 假设已有序
+
+		for (j = 0; j < sz - 1 - i; j++) // 第一次9趟 第二次8趟
+		{
+			if (arr[j] > arr[j + 1]) // 升序
+			{
+				// 交换
+				int tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+				flag = 0; // 如果发现有交换 就把flag设为0 本次排序无序
+			}
+		}
+
+		if (flag == 1) // 如果没有交换 说明已有序 break跳出 提高效率
+		{
+			break;
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = { 1, 3, 5, 2, 6, 9, 4, 8, 7, 0 };
+	// 数组传参
+	// 排序
+
+	// 数组名如果没有传参，单独放在sizeof内部的时候，如：sizeof(arr)，这里的arr表示整个数组，不是首元素的地址
+	int sz = sizeof(arr) / sizeof(arr[0]); // 此时sizeof(arr)计算的是整个数组的大小 40 / 4
+
+	// 传参在传递给函数的时候 ==数组名会降级变成首元素地址==
+	Sort(arr, sz);
+
+	Print(arr, sz);
+
+	return 0;
+}
+
+
 
 // 数组名是什么？
 // 结论：
@@ -378,8 +492,28 @@ int main()
 // 为什么输出的结果是：40？
 
 // 补充：
-// 1. sizeof(数组名)，计算整个数组的大小，sizeof内部单独放一个数组名，数组名表示整个数组。
-// 2. & 数组名，取出的是数组的地址。 & 数组名，数组名表示整个数组
+// 1. sizeof(数组名)，这里的数组名表示整个数组，sizeof(数组名)计算的是整个数组的大小。
+// 2. &数组名，这里的数组名表示整个数组，取出的是数组的地址。
+
+
+int main()
+{
+	int arr[10] = { 1, 2, 3, 4, 5 };
+
+	printf("%p\n", arr); // 首元素的地址
+	printf("%p\n", &arr[0]); // 首元素的地址
+	printf("%p\n", &arr); // 数组的地址
+
+	printf("------------------------------------------\n");
+
+	printf("%p\n", arr + 1); // 差4
+	printf("%p\n", &arr[0] + 1); // 差4
+	printf("%p\n", &arr + 1); //差40  因为此数组是10个元素 一个元素是一个整形 10个元素就是10个整形 大小是40 
+
+	return 0;
+}
+// 指向元素的指针+1会跳过一个元素
+// 指向数组的指针+1会跳过一个数组
 
 
 // 数组的应用实例1：三子棋
