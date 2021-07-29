@@ -104,7 +104,7 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 
 	while (1)
 	{
-		// 生成随机坐标 （主函数里调用srand 头文件stdlib.h time.h）
+		// 生成随机坐标（主函数里调用srand 头文件stdlib.h time.h）
 		x = rand() % row; // row是3  x是0-2范围
 		y = rand() % col;
 		if (board[x][y] == ' ') // 判断该坐标是否下过了 电脑不用提醒 不用减1 直接循环
