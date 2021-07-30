@@ -49,6 +49,7 @@ int main()
 			break;
 		case 0:
 			printf("退出游戏\n");
+			break;
 		default:
 			printf("选择错误，重新选择！\n");
 			break;
