@@ -9,24 +9,24 @@
 // 输出一行，为正整数n表示为六进制的结果
 int main()
 {
-    int num = 0;
-    int arr[50] = { 0 };
-    //输入
-    scanf("%d", &num);
-    //转换
-    int i = 0;
-    while (num)
-    {
-        arr[i] = num % 6;
-        i++;
-        num = num / 10;
-    }
-    //输出
-    for (i--; i >= 0; i--)
-    {
-        printf("%d", arr[i]);
-    }
-    return 0;
+	int num = 0;
+	int arr[50] = { 0 };
+	//输入
+	scanf("%d", &num);
+	//转换
+	int i = 0;
+	while (num)
+	{
+		arr[i] = num % 6; // %6/6得到最低位 倒着打印出来
+		i++;
+		num = num / 6;
+	}
+	//输出
+	for (i--; i >= 0; i--) //循环停下来时i++ 指向下一个 先i-- 倒着打印 调整也是i--
+	{
+		printf("%d", arr[i]);
+	}
+	return 0;
 }
 
 
