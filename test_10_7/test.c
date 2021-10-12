@@ -1,25 +1,25 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-// Ò»¡¢Ô¤´¦ÀíÏê½â
-// 1¡¢Ô¤¶¨Òå·ûºÅ
+// ä¸€ã€é¢„å¤„ç†è¯¦è§£
+// 1ã€é¢„å®šä¹‰ç¬¦å·
 #include <stdio.h>
 
 int main()
 {
-	printf("%s\n", __FILE__); // µ±Ç°Ô´ÎÄ¼þµÄÂ·¾¶
-	printf("%d\n", __LINE__); // µ±Ç°´úÂëÐÐºÅ
-	printf("%s\n", __DATE__); // ÎÄ¼þ±»±àÒëµÄÈÕÆÚ
-	printf("%s\n", __TIME__); // ÎÄ¼þ±»±àÒëµÄÊ±¼ä
+	printf("%s\n", __FILE__); // å½“å‰æºæ–‡ä»¶çš„è·¯å¾„
+	printf("%d\n", __LINE__); // å½“å‰ä»£ç è¡Œå·
+	printf("%s\n", __DATE__); // æ–‡ä»¶è¢«ç¼–è¯‘çš„æ—¥æœŸ
+	printf("%s\n", __TIME__); // æ–‡ä»¶è¢«ç¼–è¯‘çš„æ—¶é—´
 
-	// Èç¹û±àÒëÆ÷×ñÑ­ANSI C£¬ÆäÖµÎª1£¬·ñÔòÎ´¶¨Òå
-	printf("%d\n", __STDC__); // VS²»Ö§³ÖANSI C±ê×¼£¬ËùÒÔ__STDC__ÊÇÎ´¶¨ÒåµÄ
+	// å¦‚æžœç¼–è¯‘å™¨éµå¾ªANSI Cï¼Œå…¶å€¼ä¸º1ï¼Œå¦åˆ™æœªå®šä¹‰
+	printf("%d\n", __STDC__); // VSä¸æ”¯æŒANSI Cæ ‡å‡†ï¼Œæ‰€ä»¥__STDC__æ˜¯æœªå®šä¹‰çš„
 
 	return 0;
 }
 
 
-// 2¡¢#define
-// 2.1¡¢#define ¶¨Òå±êÊ¶·û³£Á¿
+// 2ã€#define
+// 2.1ã€#define å®šä¹‰æ ‡è¯†ç¬¦å¸¸é‡
 #include <stdio.h>
 
 #define MAX 100
@@ -28,7 +28,7 @@ int main()
 
 int main()
 {
-	int m = MAX; // Ô¤´¦Àí½×¶Î¾ÍÒÑ¾­Ìæ»»
+	int m = MAX; // é¢„å¤„ç†é˜¶æ®µå°±å·²ç»æ›¿æ¢
 	printf("%d\n", m);
 
 	reg int num = 100;
@@ -39,18 +39,18 @@ int main()
 }
 
 
-// 2.2¡¢#define ¶¨Òåºê
-// #define »úÖÆ°üÀ¨ÁËÒ»¸ö¹æ¶¨£¬ÔÊÐí°Ñ²ÎÊýÌæ»»µ½ÎÄ±¾ÖÐ£¬ÕâÖÖÊµÏÖÍ¨³£³ÆÎªºê»ò¶¨Òåºê
+// 2.2ã€#define å®šä¹‰å®
+// #define æœºåˆ¶åŒ…æ‹¬äº†ä¸€ä¸ªè§„å®šï¼Œå…è®¸æŠŠå‚æ•°æ›¿æ¢åˆ°æ–‡æœ¬ä¸­ï¼Œè¿™ç§å®žçŽ°é€šå¸¸ç§°ä¸ºå®æˆ–å®šä¹‰å®
 #include <stdio.h>
 
 #define SQUARE1(X) X*X
 #define SQUARE2(X) ( (X) * (X) )
-//        ºêÃû ²ÎÊý ºêÌå
+//        å®å å‚æ•° å®ä½“
 
 int main()
 {
 	int a = 5;
-	int ret = SQUARE1(a); // Ô¤´¦Àí½×¶ÎÌæ»» --> int ret = a*a;
+	int ret = SQUARE1(a); // é¢„å¤„ç†é˜¶æ®µæ›¿æ¢ --> int ret = a*a;
 	printf("%d\n", ret);
 
 	ret = SQUARE2(a); // --> int ret = ( (a) * (a) );
@@ -58,23 +58,36 @@ int main()
 
 	return 0;
 }
-// ÓÃÓÚ¶ÔÊýÖµ±í´ïÊ½½øÐÐÇóÖµµÄºê¶¨Òå¶¼Ó¦¸ÃÓÃÕâÖÖ·½Ê½¼ÓÉÏÀ¨ºÅ£¬±ÜÃâÔÚÊ¹ÓÃºêÊ±ÓÉÓÚ
-// ²ÎÊýÖÐµÄ²Ù×÷·û»òÁÚ½ü²Ù×÷·ûÖ®¼ä²»¿ÉÔ¤ÁÏµÄÏà»¥×÷ÓÃ
+// ç”¨äºŽå¯¹æ•°å€¼è¡¨è¾¾å¼è¿›è¡Œæ±‚å€¼çš„å®å®šä¹‰éƒ½åº”è¯¥ç”¨è¿™ç§æ–¹å¼åŠ ä¸Šæ‹¬å·ï¼Œé¿å…åœ¨ä½¿ç”¨å®æ—¶ç”±äºŽ
+// å‚æ•°ä¸­çš„æ“ä½œç¬¦æˆ–é‚»è¿‘æ“ä½œç¬¦ä¹‹é—´ä¸å¯é¢„æ–™çš„ç›¸äº’ä½œç”¨
 
-// ×¢Òâ£º ²ÎÊýÁÐ±íµÄ×óÀ¨ºÅ±ØÐëÓëname½ôÁÚ¡£ Èç¹ûÁ½ÕßÖ®¼äÓÐÈÎºÎ¿Õ°×´æÔÚ£¬²ÎÊýÁÐ±í¾Í»á±»½âÊÍÎªstuffµÄÒ»²¿·Ö¡£
-// #define SQUARE1 (X) X*X // (X) X*XÊÇÒ»²¿·Ö
-
-
-// 2.3¡¢#define INT int // Ô¤´¦ÀíÌæ»»
-//typedef int INT_S // ¶ÔÀàÐÍÖØÃüÃû INT_S¾ÍÊÇÀàÐÍ
-
-// ÀýÌâ£º£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+// æ³¨æ„ï¼š å‚æ•°åˆ—è¡¨çš„å·¦æ‹¬å·å¿…é¡»ä¸Žnameç´§é‚»ã€‚ å¦‚æžœä¸¤è€…ä¹‹é—´æœ‰ä»»ä½•ç©ºç™½å­˜åœ¨ï¼Œå‚æ•°åˆ—è¡¨å°±ä¼šè¢«è§£é‡Šä¸ºstuffçš„ä¸€éƒ¨åˆ†ã€‚
+// #define SQUARE1 (X) X*X // (X) X*Xæ˜¯ä¸€éƒ¨åˆ†
 
 
-// 2.4¡¢#define Ìæ»»¹æÔò
-/* 1. ÔÚµ÷ÓÃºêÊ±£¬Ê×ÏÈ¶Ô²ÎÊý½øÐÐ¼ì²é£¬¿´¿´ÊÇ·ñ°üº¬ÈÎºÎÓÉ#define¶¨ÒåµÄ·ûºÅ¡£Èç¹ûÊÇ£¬ËüÃÇÊ×ÏÈ±»Ìæ»»¡£
-2. Ìæ»»ÎÄ±¾Ëæºó±»²åÈëµ½³ÌÐòÖÐÔ­À´ÎÄ±¾µÄÎ»ÖÃ¡£¶ÔÓÚºê£¬²ÎÊýÃû±»ËûÃÇµÄÖµÌæ»»¡£
-3. ×îºó£¬ÔÙ´Î¶Ô½á¹ûÎÄ¼þ½øÐÐÉ¨Ãè£¬¿´¿´ËüÊÇ·ñ°üº¬ÈÎºÎÓÉ#define¶¨ÒåµÄ·ûºÅ¡£Èç¹ûÊÇ£¬¾ÍÖØ¸´ÉÏÊö´¦Àí¹ý³Ì¡£ */
+// 2.3ã€#define INT int // é¢„å¤„ç†æ›¿æ¢
+//typedef int INT_S // å¯¹ç±»åž‹é‡å‘½å INT_Så°±æ˜¯ç±»åž‹
+
+// ä¾‹é¢˜ï¼š
+#define ptr_t int*
+typedef int* ptr_t2;
+
+int main()
+{
+	ptr_t p1, p2;
+	//é¢„å¤„ç†åŽæ›¿æ¢ä¸º
+	int *p1, p2;//p1æ˜¯æŒ‡é’ˆï¼Œp2æ˜¯æ•´å½¢çš„
+	ptr_t2 p3, p4;//p3å’Œp4éƒ½æ˜¯æŒ‡é’ˆç±»åž‹
+
+	return 0;
+}
+
+
+
+// 2.4ã€#define æ›¿æ¢è§„åˆ™
+/* 1. åœ¨è°ƒç”¨å®æ—¶ï¼Œé¦–å…ˆå¯¹å‚æ•°è¿›è¡Œæ£€æŸ¥ï¼Œçœ‹çœ‹æ˜¯å¦åŒ…å«ä»»ä½•ç”±#defineå®šä¹‰çš„ç¬¦å·ã€‚å¦‚æžœæ˜¯ï¼Œå®ƒä»¬é¦–å…ˆè¢«æ›¿æ¢ã€‚
+2. æ›¿æ¢æ–‡æœ¬éšåŽè¢«æ’å…¥åˆ°ç¨‹åºä¸­åŽŸæ¥æ–‡æœ¬çš„ä½ç½®ã€‚å¯¹äºŽå®ï¼Œå‚æ•°åè¢«ä»–ä»¬çš„å€¼æ›¿æ¢ã€‚
+3. æœ€åŽï¼Œå†æ¬¡å¯¹ç»“æžœæ–‡ä»¶è¿›è¡Œæ‰«æï¼Œçœ‹çœ‹å®ƒæ˜¯å¦åŒ…å«ä»»ä½•ç”±#defineå®šä¹‰çš„ç¬¦å·ã€‚å¦‚æžœæ˜¯ï¼Œå°±é‡å¤ä¸Šè¿°å¤„ç†è¿‡ç¨‹ã€‚ */
 #define MAX 100
 #define ADD(X, Y) ( (X) + (Y) )
 
@@ -86,16 +99,16 @@ int main()
 
 	return 0;
 }
-//×¢Òâ£º
-//1. ºê²ÎÊýºÍ#define ¶¨ÒåÖÐ¿ÉÒÔ³öÏÖÆäËû#define¶¨ÒåµÄ±äÁ¿¡£µ«ÊÇ¶ÔÓÚºê£¬²»ÄÜ³öÏÖµÝ¹é¡£
-//2. µ±Ô¤´¦ÀíÆ÷ËÑË÷#define¶¨ÒåµÄ·ûºÅµÄÊ±ºò£¬×Ö·û´®³£Á¿µÄÄÚÈÝ²¢²»±»ËÑË÷¡£
+//æ³¨æ„ï¼š
+//1. å®å‚æ•°å’Œ#define å®šä¹‰ä¸­å¯ä»¥å‡ºçŽ°å…¶ä»–#defineå®šä¹‰çš„å˜é‡ã€‚ä½†æ˜¯å¯¹äºŽå®ï¼Œä¸èƒ½å‡ºçŽ°é€’å½’ã€‚
+//2. å½“é¢„å¤„ç†å™¨æœç´¢#defineå®šä¹‰çš„ç¬¦å·çš„æ—¶å€™ï¼Œå­—ç¬¦ä¸²å¸¸é‡çš„å†…å®¹å¹¶ä¸è¢«æœç´¢ã€‚
 //int sum2 = ADD(ADD(2, 3), 1); // ok
 
 
-// 2.5¡¢#ºÍ##
+// 2.5ã€#å’Œ##
 #include <stdio.h>
 
-// ÏàÁÚµÄÁ½¸ö×Ö·û´®»áºÏ³ÉÒ»¸ö
+// ç›¸é‚»çš„ä¸¤ä¸ªå­—ç¬¦ä¸²ä¼šåˆæˆä¸€ä¸ª
 int main()
 {
 	printf("hello world\n");
@@ -105,22 +118,22 @@ int main()
 
 #include <stdio.h>
 
-#define PRINT(n) printf("the value of "#n" is %d\n", n); // Ìæ»» ×ª»¯Îª¶ÔÓ¦µÃ×Ö·û´® ²åÈëµ½×Ö·û´®ÖÐ
+#define PRINT(n) printf("the value of "#n" is %d\n", n); // æ›¿æ¢ è½¬åŒ–ä¸ºå¯¹åº”å¾—å­—ç¬¦ä¸² æ’å…¥åˆ°å­—ç¬¦ä¸²ä¸­
 
 int main()
 {
 	int a = 10;
 	PRINT(a); // printf("the calue of ""a"" is %d\n", a);
 	int b = 20;
-	PRINT(b); // printf("the calue of ""b"" is %d\n", b); // Èý¸ö×Ö·û´®ºÏ³ÉÒ»¸ö
+	PRINT(b); // printf("the calue of ""b"" is %d\n", b); // ä¸‰ä¸ªå­—ç¬¦ä¸²åˆæˆä¸€ä¸ª
 
 	return 0;
 }
 
 
-// 2.6¡¢##µÄ×÷ÓÃ
-// #¿ÉÒÔ°ÑÎ»ÓÚËüÁ½±ßµÄ·ûºÅºÏ³ÉÒ»¸ö·ûºÅ¡£ 
-// ËüÔÊÐíºê¶¨Òå´Ó·ÖÀëµÄÎÄ±¾Æ¬¶Î´´½¨±êÊ¶·û¡£
+// 2.6ã€##çš„ä½œç”¨
+// #å¯ä»¥æŠŠä½äºŽå®ƒä¸¤è¾¹çš„ç¬¦å·åˆæˆä¸€ä¸ªç¬¦å·ã€‚ 
+// å®ƒå…è®¸å®å®šä¹‰ä»Žåˆ†ç¦»çš„æ–‡æœ¬ç‰‡æ®µåˆ›å»ºæ ‡è¯†ç¬¦ã€‚
 #include <stdio.h>
 
 #define CAT(X, Y) X##Y
@@ -134,16 +147,16 @@ int main()
 }
 
 
-// 2.7¡¢´ø¸±×÷ÓÃµÄºê²ÎÊý
+// 2.7ã€å¸¦å‰¯ä½œç”¨çš„å®å‚æ•°
 int main()
 {
 	int a = 10;
-	int b = a + 1;  // bµÃµ½11 ÇÒa²»±ä
-	int c = ++a; // bµÃµ½11 µ«a±äÁË Õâ¸ö±í´ïÊ½ÊÇÓÐ¸±×÷ÓÃµÄ
+	int b = a + 1;  // bå¾—åˆ°11 ä¸”aä¸å˜
+	int c = ++a; // bå¾—åˆ°11 ä½†aå˜äº† è¿™ä¸ªè¡¨è¾¾å¼æ˜¯æœ‰å‰¯ä½œç”¨çš„
 }
 
 
-// Á½¸öÊýÇó½Ï´óÖµ£¬ºêµÄÊµÏÖ£º
+// ä¸¤ä¸ªæ•°æ±‚è¾ƒå¤§å€¼ï¼Œå®çš„å®žçŽ°ï¼š
 #include <stdio.h>
 
 #define MAX(X, Y) ( (X)>(Y)?(X):(Y) )
@@ -153,12 +166,12 @@ int main()
 	int a = 5;
 	int b = 8;
 	int m = MAX(a++, b++); 
-	// ºêµÄ²ÎÊý²»¼ÆËãÖ±½ÓÌæ»» Ìæ»»½øÈ¥ºó²ÎÓëÔËËã£¬¶øº¯ÊýµÄ²ÎÊýÊ±¼ÆËãºó´«µÄ
+	// å®çš„å‚æ•°ä¸è®¡ç®—ç›´æŽ¥æ›¿æ¢ æ›¿æ¢è¿›åŽ»åŽå‚ä¸Žè¿ç®—ï¼Œè€Œå‡½æ•°çš„å‚æ•°æ—¶è®¡ç®—åŽä¼ çš„
 	// int m = ( (a++)>(b++)?(a++):(b++) );
 	
 	printf("%d\n", m); // 9
 
-	// 5>8?(a++):(b++) ÏÈÊ¹ÓÃ£¬µ«aºÍbµÄÖµ±ä³ÉÁË6ºÍ9¡£ÒòÎª5>8£¬ËùÒÔa++²»Ëã£¬aÊÇ6¡£b++£¬ÏÈÊ¹ÓÃºó++£¬bÊÇ10¡£
+	// 5>8?(a++):(b++) å…ˆä½¿ç”¨ï¼Œä½†aå’Œbçš„å€¼å˜æˆäº†6å’Œ9ã€‚å› ä¸º5>8ï¼Œæ‰€ä»¥a++ä¸ç®—ï¼Œaæ˜¯6ã€‚b++ï¼Œå…ˆä½¿ç”¨åŽ++ï¼Œbæ˜¯10ã€‚
 	printf("%d\n", a); // 6
 	printf("%d\n", b); // 10
 
@@ -166,7 +179,7 @@ int main()
 }
 
 
-// 2.8¡¢ºêºÍº¯Êý¶Ô±È
+// 2.8ã€å®å’Œå‡½æ•°å¯¹æ¯”
 #include <stdio.h>
 
 #define MAX(X, Y) ( (X)>(Y)?(X):(Y) )
@@ -192,22 +205,22 @@ int main()
 	return 0;
 }
 
-// ÒÔÉÏÇó½Ï´óÖµ£¬ºêÓëº¯ÊýµÄÊµÏÖ£¬ÎªÊ²Ã´²»ÓÃº¯ÊýÀ´Íê³ÉÕâ¸öÈÎÎñ£¿ Ô­ÒòÓÐ¶þ£º
-/* 1. º¯ÊýÊÇÐèÒªµ÷ÓÃµÄ£¬µ÷ÓÃº¯ÊýºÍ´Óº¯Êý·µ»Ø¶¼ÊÇÓÐÊ±¼ä¿ªÏúµÄ£¨º¯ÊýÕ»Ö¡£©£¬
-¶øºêÔÚÔ¤´¦Àí½×¶Î¾ÍÍê³ÉÌæ»»£¬ºê±Èº¯ÊýÔÚ³ÌÐòµÄ¹æÄ£ºÍËÙ¶È·½Ãæ¸üÊ¤Ò»³ï¡£
-2. º¯ÊýµÄ²ÎÊý±ØÐëÉùÃ÷ÎªÌØ¶¨µÄÀàÐÍ¡£ËùÒÔº¯ÊýÖ»ÄÜÔÚÀàÐÍºÏÊÊµÄ±í´ïÊ½ÉÏÊ¹ÓÃ¡£·´Ö®Õâ¸öºêÔõ¿É
-ÒÔÊÊÓÃÓÚÕûÐÎ¡¢³¤ÕûÐÍ¡¢¸¡µãÐÍµÈ¿ÉÒÔÓÃÓÚ>À´±È½ÏµÄÀàÐÍ¡£ºêÊÇÀàÐÍÎÞ¹ØµÄ¡£*/
+// ä»¥ä¸Šæ±‚è¾ƒå¤§å€¼ï¼Œå®ä¸Žå‡½æ•°çš„å®žçŽ°ï¼Œä¸ºä»€ä¹ˆä¸ç”¨å‡½æ•°æ¥å®Œæˆè¿™ä¸ªä»»åŠ¡ï¼Ÿ åŽŸå› æœ‰äºŒï¼š
+/* 1. å‡½æ•°æ˜¯éœ€è¦è°ƒç”¨çš„ï¼Œè°ƒç”¨å‡½æ•°å’Œä»Žå‡½æ•°è¿”å›žéƒ½æ˜¯æœ‰æ—¶é—´å¼€é”€çš„ï¼ˆå‡½æ•°æ ˆå¸§ï¼‰ï¼Œ
+è€Œå®åœ¨é¢„å¤„ç†é˜¶æ®µå°±å®Œæˆæ›¿æ¢ï¼Œå®æ¯”å‡½æ•°åœ¨ç¨‹åºçš„è§„æ¨¡å’Œé€Ÿåº¦æ–¹é¢æ›´èƒœä¸€ç­¹ã€‚
+2. å‡½æ•°çš„å‚æ•°å¿…é¡»å£°æ˜Žä¸ºç‰¹å®šçš„ç±»åž‹ã€‚æ‰€ä»¥å‡½æ•°åªèƒ½åœ¨ç±»åž‹åˆé€‚çš„è¡¨è¾¾å¼ä¸Šä½¿ç”¨ã€‚åä¹‹è¿™ä¸ªå®æ€Žå¯
+ä»¥é€‚ç”¨äºŽæ•´å½¢ã€é•¿æ•´åž‹ã€æµ®ç‚¹åž‹ç­‰å¯ä»¥ç”¨äºŽ>æ¥æ¯”è¾ƒçš„ç±»åž‹ã€‚å®æ˜¯ç±»åž‹æ— å…³çš„ã€‚*/
 
-// ºêÏà±Èº¯ÊýÒ²ÓÐÁÓÊÆµÄµØ·½£º
-/* 1. Ã¿´ÎÊ¹ÓÃºêµÄÊ±ºò£¬Ò»·Ýºê¶¨ÒåµÄ´úÂë½«²åÈëµ½³ÌÐòÖÐ¡£Èç¹ûºêÌåºÜ´ó£¬¿ÉÄÜ´ó·ù¶ÈÔö¼Ó³ÌÐòµÄ³¤¶È¡£
-2. ºêÊÇÃ»·¨µ÷ÊÔµÄ£¬ÒòÎªÒÑ¾­Ìæ»»¡£
-3. ºêÓÉÓÚÀàÐÍÎÞ¹Ø£¬Ã»ÓÐÀàÐÍÏÞÖÆ£¬Ò²¾Í²»¹»ÑÏ½÷¡£
-4. ºê¿ÉÄÜ»á´øÀ´ÔËËã·ûÓÅÏÈ¼¶µÄÎÊÌâ£¬µ¼ÖÂ³ÌÈÝÒ×³öÏÖ´í¡£ºêµÄ²ÎÊýÀïÈç¹ûÓÐ±í´ïÊ½£¬ÐèÒª¼ÓÀ¨ºÅ¡£ */
+// å®ç›¸æ¯”å‡½æ•°ä¹Ÿæœ‰åŠ£åŠ¿çš„åœ°æ–¹ï¼š
+/* 1. æ¯æ¬¡ä½¿ç”¨å®çš„æ—¶å€™ï¼Œä¸€ä»½å®å®šä¹‰çš„ä»£ç å°†æ’å…¥åˆ°ç¨‹åºä¸­ã€‚å¦‚æžœå®ä½“å¾ˆå¤§ï¼Œå¯èƒ½å¤§å¹…åº¦å¢žåŠ ç¨‹åºçš„é•¿åº¦ã€‚
+2. å®æ˜¯æ²¡æ³•è°ƒè¯•çš„ï¼Œå› ä¸ºå·²ç»æ›¿æ¢ã€‚
+3. å®ç”±äºŽç±»åž‹æ— å…³ï¼Œæ²¡æœ‰ç±»åž‹é™åˆ¶ï¼Œä¹Ÿå°±ä¸å¤Ÿä¸¥è°¨ã€‚
+4. å®å¯èƒ½ä¼šå¸¦æ¥è¿ç®—ç¬¦ä¼˜å…ˆçº§çš„é—®é¢˜ï¼Œå¯¼è‡´ç¨‹å®¹æ˜“å‡ºçŽ°é”™ã€‚å®çš„å‚æ•°é‡Œå¦‚æžœæœ‰è¡¨è¾¾å¼ï¼Œéœ€è¦åŠ æ‹¬å·ã€‚ */
 
-// ºêÓÐÊ±ºò¿ÉÒÔ×öº¯Êý×ö²»µ½µÄÊÂÇé¡£±ÈÈç£ººêµÄ²ÎÊý¿ÉÒÔ³öÏÖÀàÐÍ£¬µ«ÊÇº¯Êý×ö²»µ½¡£
+// å®æœ‰æ—¶å€™å¯ä»¥åšå‡½æ•°åšä¸åˆ°çš„äº‹æƒ…ã€‚æ¯”å¦‚ï¼šå®çš„å‚æ•°å¯ä»¥å‡ºçŽ°ç±»åž‹ï¼Œä½†æ˜¯å‡½æ•°åšä¸åˆ°ã€‚
 #define MALLOC(num, type) \
 	(type*)malloc(num*sizeof(type))
-// \ - ÐøÐÐ·û
+// \ - ç»­è¡Œç¬¦
 
 int main()
 {
@@ -216,32 +229,32 @@ int main()
 }
 
 
-// 2.9¡¢ÃüÃûÔ¼¶¨
-// ºêµÄÃû×ÖÒ»°ã¶¼ÊÇ´óÐ´-MAX  º¯ÊýµÄÃû×ÖÒ»°ã²»È«´óÐ´-Max
+// 2.9ã€å‘½åçº¦å®š
+// å®çš„åå­—ä¸€èˆ¬éƒ½æ˜¯å¤§å†™-MAX  å‡½æ•°çš„åå­—ä¸€èˆ¬ä¸å…¨å¤§å†™-Max
 
 
-// 2.10¡¢Ô¤´¦ÀíÖ¸Áî #undef 
+// 2.10ã€é¢„å¤„ç†æŒ‡ä»¤ #undef 
 #define MAX 100
 
 int main()
 {
 	int m = MAX;
 #undef MAX
-	// ÕâÌõÖ¸ÁîÓÃÓÚÒÆ³ýÒ»¸öºê¶¨Òå
-	// Èç¹ûÏÖ´æµÄÒ»¸öÃû×ÖÐèÒª±»ÖØÐÂ¶¨Òå£¬ÄÇÃ´ËüµÄ¾ÉÃû×ÖÊ×ÏÈÒª±»ÒÆ³ý
-	int a = MAX; // Î´¶¨Òå±êÊ¶·ûMAX
+	// è¿™æ¡æŒ‡ä»¤ç”¨äºŽç§»é™¤ä¸€ä¸ªå®å®šä¹‰
+	// å¦‚æžœçŽ°å­˜çš„ä¸€ä¸ªåå­—éœ€è¦è¢«é‡æ–°å®šä¹‰ï¼Œé‚£ä¹ˆå®ƒçš„æ—§åå­—é¦–å…ˆè¦è¢«ç§»é™¤
+	int a = MAX; // æœªå®šä¹‰æ ‡è¯†ç¬¦MAX
 }
 
 
-// ¶þ¡¢ÃüÁîÐÐ¶¨Òå
-// ÔÚÃüÁîÐÐµÄÊ±ºò¸³³õÖµ
-/* Ðí¶àC µÄ±àÒëÆ÷Ìá¹©ÁËÒ»ÖÖÄÜÁ¦£¬ÔÊÐíÔÚÃüÁîÐÐÖÐ¶¨Òå·ûºÅ¡£ÓÃÓÚÆô¶¯±àÒë¹ý³Ì¡£ ÀýÈç£ºµ±ÎÒÃÇ¸ù¾ÝÍ¬Ò»¸öÔ´ÎÄ¼þÒª
-±àÒë³ö²»Í¬µÄÒ»¸ö³ÌÐòµÄ²»Í¬°æ±¾µÄÊ±ºò£¬Õâ¸öÌØÐÔÓÐµãÓÃ´¦¡££¨¼Ù¶¨Ä³¸ö³ÌÐòÖÐÉùÃ÷ÁËÒ»¸öÄ³¸ö³¤¶ÈµÄÊý×é£¬Èç¹û
-»úÆ÷ÄÚ´æÓÐÏÞ£¬ÎÒÃÇÐèÒªÒ»¸öºÜÐ¡µÄÊý×é£¬µ«ÊÇÁíÍâÒ»¸ö»úÆ÷ÄÚ´æ´óÐ´£¬ÎÒÃÇÐèÒªÒ»¸öÊý×éÄÜ¹»´óÐ´¡££© */
+// äºŒã€å‘½ä»¤è¡Œå®šä¹‰
+// åœ¨å‘½ä»¤è¡Œçš„æ—¶å€™èµ‹åˆå€¼
+/* è®¸å¤šC çš„ç¼–è¯‘å™¨æä¾›äº†ä¸€ç§èƒ½åŠ›ï¼Œå…è®¸åœ¨å‘½ä»¤è¡Œä¸­å®šä¹‰ç¬¦å·ã€‚ç”¨äºŽå¯åŠ¨ç¼–è¯‘è¿‡ç¨‹ã€‚ ä¾‹å¦‚ï¼šå½“æˆ‘ä»¬æ ¹æ®åŒä¸€ä¸ªæºæ–‡ä»¶è¦
+ç¼–è¯‘å‡ºä¸åŒçš„ä¸€ä¸ªç¨‹åºçš„ä¸åŒç‰ˆæœ¬çš„æ—¶å€™ï¼Œè¿™ä¸ªç‰¹æ€§æœ‰ç‚¹ç”¨å¤„ã€‚ï¼ˆå‡å®šæŸä¸ªç¨‹åºä¸­å£°æ˜Žäº†ä¸€ä¸ªæŸä¸ªé•¿åº¦çš„æ•°ç»„ï¼Œå¦‚æžœ
+æœºå™¨å†…å­˜æœ‰é™ï¼Œæˆ‘ä»¬éœ€è¦ä¸€ä¸ªå¾ˆå°çš„æ•°ç»„ï¼Œä½†æ˜¯å¦å¤–ä¸€ä¸ªæœºå™¨å†…å­˜å¤§å†™ï¼Œæˆ‘ä»¬éœ€è¦ä¸€ä¸ªæ•°ç»„èƒ½å¤Ÿå¤§å†™ã€‚ï¼‰ */
 
 
-// Èý¡¢Ìõ¼þ±àÒë
-// Âú×ãÌõ¼þ£¬´úÂë²ÎÓë±àÒë£¬²»Âú×ãÌõ¼þ£¬´úÂë²»²ÎÓë±àÒë
+// ä¸‰ã€æ¡ä»¶ç¼–è¯‘
+// æ»¡è¶³æ¡ä»¶ï¼Œä»£ç å‚ä¸Žç¼–è¯‘ï¼Œä¸æ»¡è¶³æ¡ä»¶ï¼Œä»£ç ä¸å‚ä¸Žç¼–è¯‘
 int main()
 {
 #if 1
@@ -251,7 +264,7 @@ int main()
 	return 0;
 }
 
-// ÔÚÔ¤´¦ÀíÖÐ£¬Ìõ¼þÎª¼Ù£¬Óï¾äprintf("hehe\n");²»²ÎÓë±àÒë
+// åœ¨é¢„å¤„ç†ä¸­ï¼Œæ¡ä»¶ä¸ºå‡ï¼Œè¯­å¥printf("hehe\n");ä¸å‚ä¸Žç¼–è¯‘
 int main()
 {
 #if 0
@@ -262,12 +275,12 @@ int main()
 }
 
 
-// ³£¼ûµÄÌõ¼þ±àÒëÖ¸Áî£º
+// å¸¸è§çš„æ¡ä»¶ç¼–è¯‘æŒ‡ä»¤ï¼š
 /* 1.
-#if ³£Á¿±í´ïÊ½
+#if å¸¸é‡è¡¨è¾¾å¼
 //...
 #endif
-//³£Á¿±í´ïÊ½ÓÉÔ¤´¦ÀíÆ÷ÇóÖµ¡£ */
+//å¸¸é‡è¡¨è¾¾å¼ç”±é¢„å¤„ç†å™¨æ±‚å€¼ã€‚ */
 #define M 2
 int main()
 {
@@ -278,11 +291,11 @@ int main()
 	return 0;
 }
 
-//£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+//ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 int main()
 {
 	int a = 2;
-#if a==2 // err ²»ÄÜÓÐ±äÁ¿
+#if a==2 // err ä¸èƒ½æœ‰å˜é‡
 	printf("hehe\n");
 #endif
 
@@ -290,10 +303,10 @@ int main()
 }
 
 
-// 2. ¶à¸ö·ÖÖ§µÄÌõ¼þ±àÒë
-/* #if ³£Á¿±í´ïÊ½
+// 2. å¤šä¸ªåˆ†æ”¯çš„æ¡ä»¶ç¼–è¯‘
+/* #if å¸¸é‡è¡¨è¾¾å¼
 //...
-#elif ³£Á¿±í´ïÊ½
+#elif å¸¸é‡è¡¨è¾¾å¼
 //...
 #else
 //...
@@ -313,16 +326,16 @@ int main()
 }
 
 
-// 3.ÅÐ¶ÏÊÇ·ñ±»¶¨Òå
+// 3.åˆ¤æ–­æ˜¯å¦è¢«å®šä¹‰
 #define MAX 0
 
 int main()
 {
-#if defined(MAX) // ÅÐ¶ÏMAXÊÇ·ñ±»¶¨Òå
+#if defined(MAX) // åˆ¤æ–­MAXæ˜¯å¦è¢«å®šä¹‰
 	printf("hehe:MAX\n");
 #endif
 
-// Ð´·¨Í¬ÏÂ£º
+// å†™æ³•åŒä¸‹ï¼š
 #ifdef MAX
 	printf("hehe:MAX\n");
 #endif
@@ -330,14 +343,14 @@ int main()
 	return 0;
 }
 
-// ÅÐ¶ÏÃ»ÓÐ¶¨Òå£º
+// åˆ¤æ–­æ²¡æœ‰å®šä¹‰ï¼š
 int main()
 {
 #if !defined(MAX)
 	printf("haha:MAX\n");
 #endif
 
-	// Ð´·¨Í¬ÏÂ£º
+	// å†™æ³•åŒä¸‹ï¼š
 #ifndef MAX
 	printf("haha:MAX\n");
 #endif
@@ -346,7 +359,7 @@ int main()
 }
 
 
-// 4.Ç¶Ì×Ö¸Áî
+// 4.åµŒå¥—æŒ‡ä»¤
 int main()
 {
 //
@@ -368,25 +381,25 @@ int main()
 }
 
 
-// ËÄ¡¢ÎÄ¼þ°üº¬
+// å››ã€æ–‡ä»¶åŒ…å«
 
-// 1¡¢Í·ÎÄ¼þ±»°üº¬µÄ·½Ê½
+// 1ã€å¤´æ–‡ä»¶è¢«åŒ…å«çš„æ–¹å¼
 
-// ±¾µØÎÄ¼þ°üº¬"" --> #include "add.h"
-// 1. Ê×ÏÈÔÚµ±Ç°¹¤³ÌµÄÄ¿Â¼ÏÂ²éÕÒ
-// 2. Èç¹ûµÚÒ»²½ÕÒ²»µ½£¬¾ÍÈ¥¿âº¯ÊýµÄÄ¿Â¼ÏÂ²éÕÒ£¬Èç¹ûÕÒ²»µ½¾ÍÌáÊ¾±àÒë´íÎó
+// æœ¬åœ°æ–‡ä»¶åŒ…å«"" --> #include "add.h"
+// 1. é¦–å…ˆåœ¨å½“å‰å·¥ç¨‹çš„ç›®å½•ä¸‹æŸ¥æ‰¾
+// 2. å¦‚æžœç¬¬ä¸€æ­¥æ‰¾ä¸åˆ°ï¼Œå°±åŽ»åº“å‡½æ•°çš„ç›®å½•ä¸‹æŸ¥æ‰¾ï¼Œå¦‚æžœæ‰¾ä¸åˆ°å°±æç¤ºç¼–è¯‘é”™è¯¯
 
-// ¿âÎÄ¼þ°üº¬ --> #include <stdio.h>
-// Ö±½ÓÔÚ¿âº¯ÊýµÄÄ¿Â¼ÏÂ²éÕÒ£¬Èç¹ûÕÒ²»µ½¾ÍÌáÊ¾±àÒë´íÎó
+// åº“æ–‡ä»¶åŒ…å« --> #include <stdio.h>
+// ç›´æŽ¥åœ¨åº“å‡½æ•°çš„ç›®å½•ä¸‹æŸ¥æ‰¾ï¼Œå¦‚æžœæ‰¾ä¸åˆ°å°±æç¤ºç¼–è¯‘é”™è¯¯
 
-/* ÕâÑùÊÇ²»ÊÇ¿ÉÒÔËµ£¬¶ÔÓÚ¿âÎÄ¼þÒ²¿ÉÒÔÊ¹ÓÃ ¡°¡± µÄÐÎÊ½°üº¬£¿ ´ð°¸ÊÇ¿Ï¶¨µÄ£¬¿ÉÒÔ¡£
-µ«ÊÇÕâÑù×ö²éÕÒµÄÐ§ÂÊ¾ÍµÍÐ©£¬µ±È»ÕâÑùÒ²²»ÈÝÒ×Çø·ÖÊÇ¿âÎÄ¼þ»¹ÊÇ±¾µØÎÄ¼þÁË */
+/* è¿™æ ·æ˜¯ä¸æ˜¯å¯ä»¥è¯´ï¼Œå¯¹äºŽåº“æ–‡ä»¶ä¹Ÿå¯ä»¥ä½¿ç”¨ â€œâ€ çš„å½¢å¼åŒ…å«ï¼Ÿ ç­”æ¡ˆæ˜¯è‚¯å®šçš„ï¼Œå¯ä»¥ã€‚
+ä½†æ˜¯è¿™æ ·åšæŸ¥æ‰¾çš„æ•ˆçŽ‡å°±ä½Žäº›ï¼Œå½“ç„¶è¿™æ ·ä¹Ÿä¸å®¹æ˜“åŒºåˆ†æ˜¯åº“æ–‡ä»¶è¿˜æ˜¯æœ¬åœ°æ–‡ä»¶äº† */
 
-//#include "C:\\Users\\XXXXX\\Desktop\\add.h" ¿ÉÒÔ¸ù¾ÝÂ·¾¶
+//#include "C:\\Users\\XXXXX\\Desktop\\add.h" å¯ä»¥æ ¹æ®è·¯å¾„
 
 
-// 2¡¢Ç¶Ì×ÎÄ¼þ°üº¬
-// ÎÄ¼þÄÚÈÝµÄÖØ¸´¡£ÈçºÎ½â¾ö£¿£ºÌõ¼þ±àÒë
+// 2ã€åµŒå¥—æ–‡ä»¶åŒ…å«
+// æ–‡ä»¶å†…å®¹çš„é‡å¤ã€‚å¦‚ä½•è§£å†³ï¼Ÿï¼šæ¡ä»¶ç¼–è¯‘
 #include "test.h"
 #include "test.h"
 #include "test.h"
@@ -395,22 +408,22 @@ int main()
 {
 	return 0;
 }
-/* Ã¿¸öÍ·ÎÄ¼þµÄ¿ªÍ·Ð´£º
+/* æ¯ä¸ªå¤´æ–‡ä»¶çš„å¼€å¤´å†™ï¼š
 #ifndef __TEST_H__
 #define __TEST_H__
-//Í·ÎÄ¼þµÄÄÚÈÝ
+//å¤´æ–‡ä»¶çš„å†…å®¹
 #endif __TEST_H__
-»òÕß£º
+æˆ–è€…ï¼š
 #pragma once */
 
 /*
-¡¶¸ßÖÊÁ¿C / C++±à³ÌÖ¸ÄÏ¡·
-1. Í·ÎÄ¼þÖÐµÄ ifndef / define / endifÊÇ¸ÉÊ²Ã´ÓÃµÄ ?
-2. #include <filename.h> ºÍ #include "filename.h"ÓÐÊ²Ã´Çø±ð ?
+ã€Šé«˜è´¨é‡C / C++ç¼–ç¨‹æŒ‡å—ã€‹
+1. å¤´æ–‡ä»¶ä¸­çš„ ifndef / define / endifæ˜¯å¹²ä»€ä¹ˆç”¨çš„ ?
+2. #include <filename.h> å’Œ #include "filename.h"æœ‰ä»€ä¹ˆåŒºåˆ« ?
 */
 
 
-// Îå¡¢ÆäËûÔ¤´¦ÀíÖ¸Áî
+// äº”ã€å…¶ä»–é¢„å¤„ç†æŒ‡ä»¤
 #undef
 #ifdef
 #ifndef
