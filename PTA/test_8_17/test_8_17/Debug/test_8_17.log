@@ -1,0 +1,3 @@
+﻿  test_8_17.c
+E:\Gitee\pta\test_8_17\test_8_17\test_8_17.c(133): warning C4715: “prime”: 不是所有的控件路径都返回值
+  test_8_17.vcxproj -> E:\Gitee\pta\test_8_17\Debug\test_8_17.exe
