@@ -1,0 +1,5 @@
+﻿  contact.c
+E:\bite\C\contact1\contact1\contact.c(50,17): warning C4552: ”+“: 未使用表达式结果
+  test.c
+  正在生成代码...
+  contact1.vcxproj -> E:\bite\C\contact1\Debug\contact1.exe
