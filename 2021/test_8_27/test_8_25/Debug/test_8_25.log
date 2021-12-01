@@ -1,0 +1,4 @@
+﻿  test_8_25.c
+E:\Gitee\deep-anatomy-of-c-language\test_8_25\test_8_25\test_8_25.c(142,25): warning C4133: “函数”: 从“int [10]”到“const char *”的类型不兼容
+E:\Gitee\deep-anatomy-of-c-language\test_8_25\test_8_25\test_8_25.c(148,23): warning C4133: “函数”: 从“int [10]”到“const char *”的类型不兼容
+  test_8_25.vcxproj -> E:\Gitee\deep-anatomy-of-c-language\test_8_25\Debug\test_8_25.exe
