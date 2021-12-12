@@ -1,0 +1,4 @@
+﻿  test.c
+E:\Gitee\note\leetcode\test_20211212\test_20211212\test.c(32,1): warning C4047: “初始化”:“int”与“char *”的间接级别不同
+E:\Gitee\note\leetcode\test_20211212\test_20211212\test.c(33,1): warning C4047: “初始化”:“int”与“char *”的间接级别不同
+E:\Gitee\note\leetcode\test_20211212\test_20211212\test.c(40,1): error C2075: “ch”: 初始化需要带括号的初始值设定项列表
