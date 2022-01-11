@@ -1,0 +1,4 @@
+﻿  test.c
+E:\Gitee\note\2022\test_01_11\test_01_11\test.c(21,6): warning C4013: “gets”未定义；假设外部返回 int
+E:\Gitee\note\2022\test_01_11\test_01_11\test.c(23): warning C4716: “main5”: 必须返回一个值
+  test_01_11.vcxproj -> E:\Gitee\note\2022\test_01_11\Debug\test_01_11.exe
